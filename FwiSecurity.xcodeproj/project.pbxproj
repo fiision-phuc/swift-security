@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */; };
+		BEC30AFD1DF70A4D00798A18 /* FwiBigIntTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */; };
+		BEC30B111DF70D4400798A18 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC30B0E1DF70D3600798A18 /* FwiCore.framework */; };
+		BEC30B121DF70D4C00798A18 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC30B0E1DF70D3600798A18 /* FwiCore.framework */; };
+		OBJ_21 /* FwiSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* FwiSecurity.swift */; };
+		OBJ_28 /* FwiSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* FwiSecurityTests.swift */; };
+		OBJ_30 /* FwiSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* FwiSecurity.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEC30AF81DF708A800798A18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_16;
+			remoteInfo = FwiSecurity;
+		};
+		BEC30B0D1DF70D3600798A18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC30B0F1DF70D3600798A18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCoreTests";
+			remoteInfo = FwiCoreTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigInt.swift; sourceTree = "<group>"; };
+		BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigIntTest.swift; sourceTree = "<group>"; };
+		BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "lib-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "lib-release.xcconfig"; sourceTree = "<group>"; };
+		BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "project-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B021DF70ADF00798A18 /* project-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "project-release.xcconfig"; sourceTree = "<group>"; };
+		BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B041DF70ADF00798A18 /* test-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-release.xcconfig"; sourceTree = "<group>"; };
+		BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FwiCore.xcodeproj; path = "Packages/FwiCore-1.1.1/FwiCore.xcodeproj"; sourceTree = "<group>"; };
+		OBJ_12 /* FwiSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FwiSecurityTests.swift; sourceTree = "<group>"; };
+		OBJ_14 /* FwiSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FwiSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_15 /* FwiSecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FwiSecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* FwiSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FwiSecurity.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BEC30B111DF70D4400798A18 /* FwiCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BEC30B121DF70D4C00798A18 /* FwiCore.framework in Frameworks */,
+				OBJ_30 /* FwiSecurity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEC30AFB1DF70A2C00798A18 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		BEC30AFE1DF70ADF00798A18 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */,
+				BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */,
+				BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */,
+				BEC30B021DF70ADF00798A18 /* project-release.xcconfig */,
+				BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */,
+				BEC30B041DF70ADF00798A18 /* test-release.xcconfig */,
+			);
+			name = Configs;
+			path = FwiSecurity.xcodeproj/Configs;
+			sourceTree = "<group>";
+		};
+		BEC30B071DF70D0200798A18 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		BEC30B091DF70D3600798A18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30B0E1DF70D3600798A18 /* FwiCore.framework */,
+				BEC30B101DF70D3600798A18 /* FwiCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* FwiSecurityTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		OBJ_11 /* FwiSecurityTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* FwiSecurityTests.swift */,
+				BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */,
+			);
+			name = FwiSecurityTests;
+			path = Tests/FwiSecurityTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* FwiSecurity.framework */,
+				OBJ_15 /* FwiSecurityTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_10 /* Tests */,
+				BEC30AFE1DF70ADF00798A18 /* Configs */,
+				OBJ_13 /* Products */,
+				BEC30B071DF70D0200798A18 /* Dependencies */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* FwiSecurity */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		OBJ_8 /* FwiSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* FwiSecurity.swift */,
+				BEC30AFB1DF70A2C00798A18 /* data */,
+			);
+			name = FwiSecurity;
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		OBJ_16 /* FwiSecurity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */;
+			buildPhases = (
+				OBJ_20 /* Sources */,
+				OBJ_22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FwiSecurity;
+			productName = FwiSecurity;
+			productReference = OBJ_14 /* FwiSecurity.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		OBJ_23 /* FwiSecurityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "FwiSecurityTests" */;
+			buildPhases = (
+				OBJ_27 /* Sources */,
+				OBJ_29 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_31 /* PBXTargetDependency */,
+			);
+			name = FwiSecurityTests;
+			productName = FwiSecurityTests;
+			productReference = OBJ_15 /* FwiSecurityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Fwi;
+				LastUpgradeCheck = 9999;
+				ORGANIZATIONNAME = "Fiision Studio";
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "FwiSecurity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_13 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BEC30B091DF70D3600798A18 /* Products */;
+					ProjectRef = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				OBJ_16 /* FwiSecurity */,
+				OBJ_23 /* FwiSecurityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BEC30B0E1DF70D3600798A18 /* FwiCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FwiCore.framework;
+			remoteRef = BEC30B0D1DF70D3600798A18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEC30B101DF70D3600798A18 /* FwiCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FwiCoreTests.xctest;
+			remoteRef = BEC30B0F1DF70D3600798A18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_21 /* FwiSecurity.swift in Sources */,
+				BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_28 /* FwiSecurityTests.swift in Sources */,
+				BEC30AFD1DF70A4D00798A18 /* FwiBigIntTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = OBJ_16 /* FwiSecurity */;
+			targetProxy = BEC30AF81DF708A800798A18 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurity;
+			};
+			name = Debug;
+		};
+		OBJ_19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurity;
+			};
+			name = Release;
+		};
+		OBJ_25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+			};
+			name = Debug;
+		};
+		OBJ_26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B041DF70ADF00798A18 /* test-release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B021DF70ADF00798A18 /* project-release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_18 /* Debug */,
+				OBJ_19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "FwiSecurity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_24 /* Build configuration list for PBXNativeTarget "FwiSecurityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
