@@ -47,7 +47,7 @@ public struct FwiBigInt: CustomStringConvertible {
         data = Data()
         negative_ = false
     }
-    public init(_ string: String, radix r: Int) {
+    public init(withString s: String, radix r: Int) {
         self.init()
     }
     
@@ -67,8 +67,6 @@ public struct FwiBigInt: CustomStringConvertible {
         return ""
     }
 }
-
-
 
 
 // MARK: Basic operators

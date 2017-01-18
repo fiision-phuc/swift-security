@@ -7,16 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
+		BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
+		BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
+		BEC0B3A51E2E6F1E00CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
+		BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */; };
+		BEC0B3AD1E2E837400CDECB9 /* FwiKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0B3A71E2E80DA00CDECB9 /* FwiKeychain.swift */; };
 		BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */; };
 		BEC30AFD1DF70A4D00798A18 /* FwiBigIntTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */; };
-		BEC30B111DF70D4400798A18 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC30B0E1DF70D3600798A18 /* FwiCore.framework */; };
-		BEC30B121DF70D4C00798A18 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC30B0E1DF70D3600798A18 /* FwiCore.framework */; };
 		OBJ_21 /* FwiSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* FwiSecurity.swift */; };
 		OBJ_28 /* FwiSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* FwiSecurityTests.swift */; };
 		OBJ_30 /* FwiSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* FwiSecurity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BEC0B3911E2E6EB600CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC0B3801E2E6BCF00CDECB9;
+			remoteInfo = CommonCrypto;
+		};
+		BEC0B3991E2E6EDB00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC0B39B1E2E6EDB00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCoreTests";
+			remoteInfo = FwiCoreTests;
+		};
+		BEC0B39D1E2E6EFD00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC0B3A01E2E6F1200CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC0B3801E2E6BCF00CDECB9;
+			remoteInfo = CommonCrypto;
+		};
+		BEC0B3A21E2E6F1200CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_FwiCore";
+			remoteInfo = FwiCore;
+		};
 		BEC30AF81DF708A800798A18 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -24,23 +70,21 @@
 			remoteGlobalIDString = OBJ_16;
 			remoteInfo = FwiSecurity;
 		};
-		BEC30B0D1DF70D3600798A18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "_____Product_FwiCore";
-			remoteInfo = FwiCore;
-		};
-		BEC30B0F1DF70D3600798A18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "_____Product_FwiCoreTests";
-			remoteInfo = FwiCoreTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
+		BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvos.modulemap; sourceTree = "<group>"; };
+		BEC0B38B1E2E6E9F00CDECB9 /* appletvsimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvsimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B38C1E2E6E9F00CDECB9 /* iphoneos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphoneos.modulemap; sourceTree = "<group>"; };
+		BEC0B38D1E2E6E9F00CDECB9 /* iphonesimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B38E1E2E6E9F00CDECB9 /* macosx.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
+		BEC0B38F1E2E6E9F00CDECB9 /* watchos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = watchos.modulemap; sourceTree = "<group>"; };
+		BEC0B3901E2E6E9F00CDECB9 /* watchsimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = watchsimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FwiCore.xcodeproj; path = "Packages/FwiCore-1.1.1/FwiCore.xcodeproj"; sourceTree = "<group>"; };
+		BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiAESKey.swift; sourceTree = "<group>"; };
+		BEC0B3A71E2E80DA00CDECB9 /* FwiKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiKeychain.swift; sourceTree = "<group>"; };
 		BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigInt.swift; sourceTree = "<group>"; };
 		BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigIntTest.swift; sourceTree = "<group>"; };
 		BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "lib-debug.xcconfig"; sourceTree = "<group>"; };
@@ -49,7 +93,6 @@
 		BEC30B021DF70ADF00798A18 /* project-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "project-release.xcconfig"; sourceTree = "<group>"; };
 		BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-debug.xcconfig"; sourceTree = "<group>"; };
 		BEC30B041DF70ADF00798A18 /* test-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-release.xcconfig"; sourceTree = "<group>"; };
-		BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FwiCore.xcodeproj; path = "Packages/FwiCore-1.1.1/FwiCore.xcodeproj"; sourceTree = "<group>"; };
 		OBJ_12 /* FwiSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FwiSecurityTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* FwiSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FwiSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* FwiSecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FwiSecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,11 +101,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BEC0B37D1E2E6BCF00CDECB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				BEC30B111DF70D4400798A18 /* FwiCore.framework in Frameworks */,
+				BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */,
+				BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,14 +121,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				BEC30B121DF70D4C00798A18 /* FwiCore.framework in Frameworks */,
+				BEC0B3A51E2E6F1E00CDECB9 /* FwiCore.framework in Frameworks */,
 				OBJ_30 /* FwiSecurity.framework in Frameworks */,
+				BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE8FA3321E2EF540001FEF53 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B3A71E2E80DA00CDECB9 /* FwiKeychain.swift */,
+				BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */,
+			);
+			name = key;
+			sourceTree = "<group>";
+		};
+		BEC0B3821E2E6BCF00CDECB9 /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */,
+				BEC0B38B1E2E6E9F00CDECB9 /* appletvsimulator.modulemap */,
+				BEC0B38C1E2E6E9F00CDECB9 /* iphoneos.modulemap */,
+				BEC0B38D1E2E6E9F00CDECB9 /* iphonesimulator.modulemap */,
+				BEC0B38E1E2E6E9F00CDECB9 /* macosx.modulemap */,
+				BEC0B38F1E2E6E9F00CDECB9 /* watchos.modulemap */,
+				BEC0B3901E2E6E9F00CDECB9 /* watchsimulator.modulemap */,
+			);
+			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		BEC0B3951E2E6EDB00CDECB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */,
+				BEC0B39C1E2E6EDB00CDECB9 /* FwiCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BEC30AFB1DF70A2C00798A18 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +179,7 @@
 				BEC30B021DF70ADF00798A18 /* project-release.xcconfig */,
 				BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */,
 				BEC30B041DF70ADF00798A18 /* test-release.xcconfig */,
+				BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */,
 			);
 			name = Configs;
 			path = FwiSecurity.xcodeproj/Configs;
@@ -103,18 +188,9 @@
 		BEC30B071DF70D0200798A18 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */,
+				BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */,
 			);
 			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		BEC30B091DF70D3600798A18 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BEC30B0E1DF70D3600798A18 /* FwiCore.framework */,
-				BEC30B101DF70D3600798A18 /* FwiCoreTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Tests */ = {
@@ -140,11 +216,12 @@
 			children = (
 				OBJ_14 /* FwiSecurity.framework */,
 				OBJ_15 /* FwiSecurityTests.xctest */,
+				BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -153,8 +230,8 @@
 				BEC30AFE1DF70ADF00798A18 /* Configs */,
 				OBJ_13 /* Products */,
 				BEC30B071DF70D0200798A18 /* Dependencies */,
+				BEC0B3821E2E6BCF00CDECB9 /* CommonCrypto */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -170,6 +247,7 @@
 			children = (
 				OBJ_9 /* FwiSecurity.swift */,
 				BEC30AFB1DF70A2C00798A18 /* data */,
+				BE8FA3321E2EF540001FEF53 /* key */,
 			);
 			name = FwiSecurity;
 			path = Sources;
@@ -177,7 +255,35 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BEC0B37E1E2E6BCF00CDECB9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEC0B3881E2E6BD000CDECB9 /* Build configuration list for PBXNativeTarget "CommonCrypto" */;
+			buildPhases = (
+				BEC0B37C1E2E6BCF00CDECB9 /* Sources */,
+				BEC0B37D1E2E6BCF00CDECB9 /* Frameworks */,
+				BEC0B37E1E2E6BCF00CDECB9 /* Headers */,
+				BEC0B37F1E2E6BCF00CDECB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonCrypto;
+			productName = CommonCrypto;
+			productReference = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		OBJ_16 /* FwiSecurity */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */;
@@ -188,6 +294,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				BEC0B39E1E2E6EFD00CDECB9 /* PBXTargetDependency */,
+				BEC0B3921E2E6EB600CDECB9 /* PBXTargetDependency */,
 			);
 			name = FwiSecurity;
 			productName = FwiSecurity;
@@ -204,7 +312,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				BEC0B3A31E2E6F1200CDECB9 /* PBXTargetDependency */,
 				OBJ_31 /* PBXTargetDependency */,
+				BEC0B3A11E2E6F1200CDECB9 /* PBXTargetDependency */,
 			);
 			name = FwiSecurityTests;
 			productName = FwiSecurityTests;
@@ -220,6 +330,13 @@
 				CLASSPREFIX = Fwi;
 				LastUpgradeCheck = 9999;
 				ORGANIZATIONNAME = "Fiision Studio";
+				TargetAttributes = {
+					BEC0B3801E2E6BCF00CDECB9 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "FwiSecurity" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -228,47 +345,67 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BEC30B091DF70D3600798A18 /* Products */;
-					ProjectRef = BEC30B081DF70D3600798A18 /* FwiCore.xcodeproj */;
+					ProductGroup = BEC0B3951E2E6EDB00CDECB9 /* Products */;
+					ProjectRef = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				OBJ_16 /* FwiSecurity */,
+				BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */,
 				OBJ_23 /* FwiSecurityTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		BEC30B0E1DF70D3600798A18 /* FwiCore.framework */ = {
+		BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = FwiCore.framework;
-			remoteRef = BEC30B0D1DF70D3600798A18 /* PBXContainerItemProxy */;
+			remoteRef = BEC0B3991E2E6EDB00CDECB9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BEC30B101DF70D3600798A18 /* FwiCoreTests.xctest */ = {
+		BEC0B39C1E2E6EDB00CDECB9 /* FwiCoreTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = FwiCoreTests.xctest;
-			remoteRef = BEC30B0F1DF70D3600798A18 /* PBXContainerItemProxy */;
+			remoteRef = BEC0B39B1E2E6EDB00CDECB9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
+/* Begin PBXResourcesBuildPhase section */
+		BEC0B37F1E2E6BCF00CDECB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		BEC0B37C1E2E6BCF00CDECB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
 				OBJ_21 /* FwiSecurity.swift in Sources */,
+				BEC0B3AD1E2E837400CDECB9 /* FwiKeychain.swift in Sources */,
 				BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */,
+				BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +421,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BEC0B3921E2E6EB600CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */;
+			targetProxy = BEC0B3911E2E6EB600CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B39E1E2E6EFD00CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FwiCore;
+			targetProxy = BEC0B39D1E2E6EFD00CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B3A11E2E6F1200CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */;
+			targetProxy = BEC0B3A01E2E6F1200CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B3A31E2E6F1200CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FwiCore;
+			targetProxy = BEC0B3A21E2E6F1200CDECB9 /* PBXContainerItemProxy */;
+		};
 		OBJ_31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_16 /* FwiSecurity */;
@@ -292,6 +449,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BEC0B3861E2E6BD000CDECB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.CommonCrypto;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BEC0B3871E2E6BD000CDECB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.CommonCrypto;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		OBJ_18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */;
@@ -345,6 +527,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BEC0B3881E2E6BD000CDECB9 /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC0B3861E2E6BD000CDECB9 /* Debug */,
+				BEC0B3871E2E6BD000CDECB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
