@@ -42,91 +42,108 @@ import Foundation
 import FwiCore
 
 
-public final class FwiAESKey {
+public struct FwiAESKey {
    
     // MARK: Class's constructors
-//    fileprivate override init() {
-//        self.identifier = "com.key.aes"
-//        super.init()
-//    }
+    public init(withIdentifier i: String? = String.randomIdentifier()) {
+        inBuffer  = [UInt8](repeating: 0, count: buffer)
+        outBuffer = [UInt8](repeating: 0, count: buffer)
+        
+        key = FwiKey(withIdentifier: i)
+        key.attributes[SecAttr.type.value] = 2147483649
+        key.attributes[SecAttr.decr.value] = kCFBooleanTrue
+        key.attributes[SecAttr.encr.value] = kCFBooleanTrue
+    }
+    public init(withSize s: FwiAESSize, identifier i: String? = String.randomIdentifier()) {
+        self.init(withIdentifier: i)
+    }
     
     // MARK: Class's properties
-    fileprivate var identifier: String = ""
-    fileprivate var entry: Data? {
-        return Keychain.load(identifier)
-    }
+    public var iv: Data?   // Initialization vector
+    
+    fileprivate var key: FwiKey
+    fileprivate let buffer = 128
+    fileprivate var inBuffer: [UInt8]
+    fileprivate var outBuffer: [UInt8]
+    
+    
+//    internal var entry: Data? {
+//        return Keychain.load(identifier)
+//    }
     
     // MARK: Class's public methods
-    /** Check Value Save In KeyChain */
-    func inKeystore() -> Bool {
-        return entry != nil
-    }
+//    /** Check Value Save In KeyChain */
+//    func inKeystore() -> Bool {
+//        return entry != nil
+//    }
     
      /** Encrypt Data */
     func encryptData(_ dataEncrypt: Data) -> Data? {
-        guard inKeystore() else {
-            return nil
-        }
+//        cipherLen = (clearLen/16 + 1) * 16;
+        
+//        guard inKeystore() else {
+//            return nil
+//        }
         
         
         if dataEncrypt.count == 0 {return nil}
-        guard let keyData = entry else {
-            return nil
-        }
-        
-        let keyBytes = UnsafeMutableRawPointer(mutating: (keyData as NSData).bytes.bindMemory(to: Void.self, capacity: keyData.count))
-    
-        let dataLength = size_t(dataEncrypt.count)
-        let dataBytes = UnsafeMutableRawPointer(mutating: (dataEncrypt as NSData).bytes.bindMemory(to: Void.self, capacity: dataEncrypt.count))
-        
-        let cryptData = NSMutableData(length: Int(dataLength) + kCCBlockSizeAES128)
-        let cryptPointer = UnsafeMutableRawPointer(cryptData!.mutableBytes)
-        let cryptLength = size_t(cryptData!.length)
-        
-        let keyLength = size_t(kCCKeySizeAES128)
-        let operation: CCOperation = UInt32(kCCEncrypt)
-        let algoritm: CCAlgorithm = UInt32(kCCAlgorithmAES128)
-        let options: CCOptions   = UInt32(kCCOptionPKCS7Padding + kCCOptionECBMode)
-        
-        var numBytesEncrypted :size_t = 0
-        
-        let cryptStatus = CCCrypt(operation,
-                                  algoritm,
-                                  options,
-                                  keyBytes, keyLength,
-                                  nil,
-                                  dataBytes, dataLength,
-                                  cryptPointer, cryptLength,
-                                  &numBytesEncrypted)
-        
-        if UInt32(cryptStatus) == UInt32(kCCSuccess) {
-            cryptData!.length = Int(numBytesEncrypted)
-            return Data.init(referencing: cryptData!)
-            
-        } else {
-            print("Error: \(cryptStatus)")
-        }
+//        guard let keyData = entry else {
+//            return nil
+//        }
+//        
+//        let keyBytes = UnsafeMutableRawPointer(mutating: (keyData as NSData).bytes.bindMemory(to: Void.self, capacity: keyData.count))
+//    
+//        let dataLength = size_t(dataEncrypt.count)
+//        let dataBytes = UnsafeMutableRawPointer(mutating: (dataEncrypt as NSData).bytes.bindMemory(to: Void.self, capacity: dataEncrypt.count))
+//        
+//        let cryptData = NSMutableData(length: Int(dataLength) + kCCBlockSizeAES128)
+//        let cryptPointer = UnsafeMutableRawPointer(cryptData!.mutableBytes)
+//        let cryptLength = size_t(cryptData!.length)
+//        
+//        let keyLength = size_t(kCCKeySizeAES128)
+//        let operation: CCOperation = UInt32(kCCEncrypt)
+//        let algoritm: CCAlgorithm = UInt32(kCCAlgorithmAES128)
+//        let options: CCOptions   = UInt32(kCCOptionPKCS7Padding + kCCOptionECBMode)
+//        
+//        var numBytesEncrypted :size_t = 0
+//        
+//        let cryptStatus = CCCrypt(operation,
+//                                  algoritm,
+//                                  options,
+//                                  keyBytes, keyLength,
+//                                  nil,
+//                                  dataBytes, dataLength,
+//                                  cryptPointer, cryptLength,
+//                                  &numBytesEncrypted)
+//        
+//        if UInt32(cryptStatus) == UInt32(kCCSuccess) {
+//            cryptData!.length = Int(numBytesEncrypted)
+//            return Data.init(referencing: cryptData!)
+//            
+//        } else {
+//            print("Error: \(cryptStatus)")
+//        }
         return nil
     }
     
      /** Decrypt Data */
     func decryptData(_ dataDecrypt: Data) -> Data? {
-//        // Create decryptor
-//        var cryptoRef: CCCryptorRef?
-//        
-//        defer {
-//            autoreleasepool { () -> () in
-//                cryptoRef = nil
-//            }
-//        }
-//        
+//        Data(capacity: 10)
+//        CCCrypt(CCOperation(kCCDecrypt),
+//                FwiAESSize.size128.algorithm,
+//                CCOptions(kCCOptionPKCS7Padding),
+//                key, FwiAESSize.size128.length,
+//                iv,
+//                <#T##dataIn: UnsafeRawPointer!##UnsafeRawPointer!#>, <#T##dataInLength: Int##Int#>, <#T##dataOut: UnsafeMutableRawPointer!##UnsafeMutableRawPointer!#>, <#T##dataOutAvailable: Int##Int#>, <#T##dataOutMoved: UnsafeMutablePointer<Int>!##UnsafeMutablePointer<Int>!#>)
+        
+        // Create decryptor
+        var cryptoRef: CCCryptorRef?
+        defer { cryptoRef = nil }
+//
 //        CCCryptorCreate(CCOperation(kCCDecrypt), CCAlgorithm(kCCAlgorithmAES128), CCOptions(kCCOptionPKCS7Padding), key, kCCKeySizeAES256, nil, &cryptoRef)
 //        
 //        // Define buffer
-//        let bufferSize = 128
-//        var inBuffer   = [UInt8](repeating: 0, count: bufferSize)
-//        var outBuffer  = [UInt8](repeating: 0, count: bufferSize)
-//        
+//
 //        // Decrypt process
 //        var len = 0
 //        var finalData = Data()
@@ -149,57 +166,57 @@ public final class FwiAESKey {
 //        finalData.append(outBuffer, count: len)
         
         // ----- Old -------------------------------------------------------------------------------
-        guard self.inKeystore() else {
-            return nil
-        }
-        
-        guard inKeystore() else {
-            return nil
-        }
-        
-        if dataDecrypt.count == 0 {return nil}
-        
-        guard let keyData = entry else {
-            return nil
-        }
-        
-        let keyBytes = UnsafeMutableRawPointer(mutating: (keyData as NSData).bytes.bindMemory(to: Void.self, capacity: keyData.count))
-        
-        let dataLength = size_t(dataDecrypt.count)
-        let dataBytes = UnsafeMutableRawPointer(mutating: (dataDecrypt as NSData).bytes.bindMemory(to: Void.self, capacity: dataDecrypt.count))
-        
-        let cryptData = NSMutableData(length: Int(dataLength) + kCCBlockSizeAES128)
-        let cryptPointer = UnsafeMutableRawPointer(cryptData!.mutableBytes)
-        let cryptLength = size_t(cryptData!.length)
-        
-        let keyLength = size_t(kCCKeySizeAES128)
-        let operation: CCOperation = UInt32(kCCDecrypt)
-        let algoritm: CCAlgorithm = UInt32(kCCAlgorithmAES128)
-        let options: CCOptions   = UInt32(kCCOptionPKCS7Padding + kCCOptionECBMode)
-        
-        var numBytesEncrypted :size_t = 0
-        
-        let cryptStatus = CCCrypt(operation,
-                                  algoritm,
-                                  options,
-                                  keyBytes, keyLength,
-                                  nil,
-                                  dataBytes, dataLength,
-                                  cryptPointer, cryptLength,
-                                  &numBytesEncrypted)
-        
-        if cryptStatus == Int32(kCCSuccess) {
-            cryptData!.length = Int(numBytesEncrypted)
-            return Data.init(referencing: cryptData!)
-        } else {
-            print("Error: \(cryptStatus)")
-        }
+//        guard self.inKeystore() else {
+//            return nil
+//        }
+//        
+//        guard inKeystore() else {
+//            return nil
+//        }
+//        
+//        if dataDecrypt.count == 0 {return nil}
+//        
+//        guard let keyData = entry else {
+//            return nil
+//        }
+//        
+//        let keyBytes = UnsafeMutableRawPointer(mutating: (keyData as NSData).bytes.bindMemory(to: Void.self, capacity: keyData.count))
+//        
+//        let dataLength = size_t(dataDecrypt.count)
+//        let dataBytes = UnsafeMutableRawPointer(mutating: (dataDecrypt as NSData).bytes.bindMemory(to: Void.self, capacity: dataDecrypt.count))
+//        
+//        let cryptData = NSMutableData(length: Int(dataLength) + kCCBlockSizeAES128)
+//        let cryptPointer = UnsafeMutableRawPointer(cryptData!.mutableBytes)
+//        let cryptLength = size_t(cryptData!.length)
+//        
+//        let keyLength = size_t(kCCKeySizeAES128)
+//        let operation: CCOperation = UInt32(kCCDecrypt)
+//        let algoritm: CCAlgorithm = UInt32(kCCAlgorithmAES128)
+//        let options: CCOptions   = UInt32(kCCOptionPKCS7Padding + kCCOptionECBMode)
+//        
+//        var numBytesEncrypted :size_t = 0
+//        
+//        let cryptStatus = CCCrypt(operation,
+//                                  algoritm,
+//                                  options,
+//                                  keyBytes, keyLength,
+//                                  nil,
+//                                  dataBytes, dataLength,
+//                                  cryptPointer, cryptLength,
+//                                  &numBytesEncrypted)
+//        
+//        if cryptStatus == Int32(kCCSuccess) {
+//            cryptData!.length = Int(numBytesEncrypted)
+//            return Data.init(referencing: cryptData!)
+//        } else {
+//            print("Error: \(cryptStatus)")
+//        }
         
         return nil
     }
     
-    open func clear(){
-        Keychain.clear()
+    public func clear(){
+//        Keychain.clear()
     }
 }
 

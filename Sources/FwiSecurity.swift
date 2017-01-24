@@ -41,14 +41,26 @@ import Foundation
 
 
 /// AES key size supported.
-public enum FwiAES {
+public enum FwiAESSize {
     case size128            // 16 bytes
     case size192            // 24 bytes
     case size256            // 32 bytes
     
-    var value: Int {
+    public var algorithm: CCAlgorithm {
         switch self {
+        case .size192:
+            return CCAlgorithm(kCCKeySizeAES192)
             
+        case .size256:
+            return CCAlgorithm(kCCKeySizeAES256)
+            
+        default:
+            return CCAlgorithm(kCCKeySizeAES128)
+        }
+    }
+    
+    public var length: Int {
+        switch self {
         case .size192:
             return kCCKeySizeAES192
             
@@ -62,22 +74,138 @@ public enum FwiAES {
 }
 
 /// RSA key size supported.
-public enum FwiRSA: Int16 {
+public enum FwiRSASize: Int {
     case size1024 = 1024    // 128 bytes
     case size2048 = 2048    // 256 bytes
     case size4096 = 4096    // 512 bytes
 }
 
-//typedef NS_ENUM(NSInteger, FwiDigest) {
-//    kSHA1   = CC_SHA1_DIGEST_LENGTH,    // 20 bytes     iOS 5
-//    kSHA256 = CC_SHA256_DIGEST_LENGTH,  // 32 bytes     iOS 6
-//    kSHA384 = CC_SHA384_DIGEST_LENGTH,  // 48 bytes     ?????
-//    kSHA512 = CC_SHA512_DIGEST_LENGTH   // 64 bytes     iOS 5
-//};  // Digest supported
-//
-//typedef NS_ENUM(NSInteger, FwiHmacHash) {
-//    kHmacHash_1   = kCCHmacAlgSHA1,     // 20 bytes
-//    kHmacHash_256 = kCCHmacAlgSHA256,   // 32 bytes
-//    kHmacHash_384 = kCCHmacAlgSHA384,   // 48 bytes
-//    kHmacHash_512 = kCCHmacAlgSHA512    // 64 bytes
-//};  // HmacHash supported
+/// RSA digest size supported.
+public enum FwiDigest {
+    case sha1               // 20 bytes
+    case sha256             // 32 bytes
+    case sha384             // 48 bytes
+    case sha512             // 64 bytes
+    
+    public var algorithm: CCHmacAlgorithm {
+        switch self {
+        case .sha256:
+            return CCHmacAlgorithm(kCCHmacAlgSHA256)
+            
+        case .sha384:
+            return CCHmacAlgorithm(kCCHmacAlgSHA384)
+            
+        case .sha512:
+            return CCHmacAlgorithm(kCCHmacAlgSHA512)
+            
+        default:
+            return CCHmacAlgorithm(kCCHmacAlgSHA1)
+        }
+    }
+    
+    public var length: Int32 {
+        switch self {
+        case .sha256:
+            return CC_SHA256_DIGEST_LENGTH
+            
+        case .sha384:
+            return CC_SHA384_DIGEST_LENGTH
+            
+        case .sha512:
+            return CC_SHA512_DIGEST_LENGTH
+            
+        default:
+            return CC_SHA1_DIGEST_LENGTH
+        }
+    }
+    
+}
+
+/// Keychain's attributes.
+internal enum SecAttr {
+    case pdmn
+    case agrp
+    case cdat
+    case mdat
+    case desc
+    case icmt
+    case crtr
+    case type
+    case labl
+    case invi
+    case nega
+    case acct
+    case svce
+    case gena
+    case sdmn
+    case srvr
+    case ptcl
+    case atyp
+    case port
+    case path
+    case ctyp
+    case cenc
+    case subj
+    case issr
+    case slnr
+    case skid
+    case pkhh
+    case kcls
+    case klbl
+    case perm
+    case atag
+    case bsiz
+    case esiz
+    case encr
+    case decr
+    case drve
+    case sign
+    case vrfy
+    case wrap
+    case unwp
+    
+    var value: String {
+        switch self {
+        case .pdmn: return "\(kSecAttrAccessible)"
+        case .agrp: return "\(kSecAttrAccessGroup)"
+        case .cdat: return "\(kSecAttrCreationDate)"
+        case .mdat: return "\(kSecAttrModificationDate)"
+        case .desc: return "\(kSecAttrDescription)"
+        case .icmt: return "\(kSecAttrComment)"
+        case .crtr: return "\(kSecAttrCreator)"
+        case .type: return "\(kSecAttrType)"
+        case .labl: return "\(kSecAttrLabel)"
+        case .invi: return "\(kSecAttrIsInvisible)"
+        case .nega: return "\(kSecAttrIsNegative)"
+        case .acct: return "\(kSecAttrAccount)"
+        case .svce: return "\(kSecAttrService)"
+        case .gena: return "\(kSecAttrGeneric)"
+        case .sdmn: return "\(kSecAttrSecurityDomain)"
+        case .srvr: return "\(kSecAttrServer)"
+        case .ptcl: return "\(kSecAttrProtocol)"
+        case .atyp: return "\(kSecAttrAuthenticationType)"
+        case .port: return "\(kSecAttrPort)"
+        case .path: return "\(kSecAttrPath)"
+        case .ctyp: return "\(kSecAttrCertificateType)"
+        case .cenc: return "\(kSecAttrCertificateEncoding)"
+        case .subj: return "\(kSecAttrSubject)"
+        case .issr: return "\(kSecAttrIssuer)"
+        case .slnr: return "\(kSecAttrSerialNumber)"
+        case .skid: return "\(kSecAttrSubjectKeyID)"
+        case .pkhh: return "\(kSecAttrPublicKeyHash)"
+        case .kcls: return "\(kSecAttrKeyClass)"
+        case .klbl: return "\(kSecAttrApplicationLabel)"
+        case .perm: return "\(kSecAttrIsPermanent)"
+        case .atag: return "\(kSecAttrApplicationTag)"
+        case .bsiz: return "\(kSecAttrKeySizeInBits)"
+        case .esiz: return "\(kSecAttrEffectiveKeySize)"
+        case .encr: return "\(kSecAttrCanEncrypt)"
+        case .decr: return "\(kSecAttrCanDecrypt)"
+        case .drve: return "\(kSecAttrCanDerive)"
+        case .sign: return "\(kSecAttrCanSign)"
+        case .vrfy: return "\(kSecAttrCanVerify)"
+        case .wrap: return "\(kSecAttrCanWrap)"
+        case .unwp: return "\(kSecAttrCanUnwrap)"
+        }
+    }
+}
