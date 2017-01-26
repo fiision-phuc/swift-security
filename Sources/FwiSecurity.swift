@@ -151,6 +151,15 @@ internal enum SecAttr {
     case wrap
     case unwp
     
+    case asen
+    case extr
+    case modi
+    case next
+    case priv
+    case sens
+    case snrc
+    case vyrc
+    
     var value: String {
         switch self {
         case .pdmn: return "\(kSecAttrAccessible)"
@@ -193,6 +202,15 @@ internal enum SecAttr {
         case .vrfy: return "\(kSecAttrCanVerify)"
         case .wrap: return "\(kSecAttrCanWrap)"
         case .unwp: return "\(kSecAttrCanUnwrap)"
+        
+        case .asen: return "asen"
+        case .extr: return "extr"
+        case .modi: return "modi"
+        case .next: return "next"
+        case .priv: return "priv"
+        case .sens: return "sens"
+        case .snrc: return "snrc"
+        case .vyrc: return "vyrc"
         }
     }
 }

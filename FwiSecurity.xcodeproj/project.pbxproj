@@ -14,6 +14,10 @@
 		BE26CFF71E33652F002771F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE26CFF51E33652F002771F7 /* LaunchScreen.storyboard */; };
 		BE26D0001E35B9F4002771F7 /* FwiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26CFFF1E35B9F4002771F7 /* FwiKeyTest.swift */; };
 		BE821D291E3022DC00FF051A /* FwiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE821D281E3022DC00FF051A /* FwiKey.swift */; };
+		BEA0AF461E39EB64009D863A /* FwiRSAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */; };
+		BEA0AF4F1E39F827009D863A /* FwiRSAKeypair.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */; };
+		BEA0AF541E39F82F009D863A /* FwiRSAPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */; };
+		BEA0AF551E39F82F009D863A /* FwiRSAPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */; };
 		BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
 		BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
 		BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
@@ -97,6 +101,10 @@
 		BE26CFFC1E336551002771F7 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
 		BE26CFFF1E35B9F4002771F7 /* FwiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiKeyTest.swift; sourceTree = "<group>"; };
 		BE821D281E3022DC00FF051A /* FwiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiKey.swift; sourceTree = "<group>"; };
+		BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKey.swift; sourceTree = "<group>"; };
+		BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAPrivateKey.swift; sourceTree = "<group>"; };
+		BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAPublicKey.swift; sourceTree = "<group>"; };
+		BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKeypair.swift; sourceTree = "<group>"; };
 		BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
 		BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvos.modulemap; sourceTree = "<group>"; };
@@ -204,6 +212,10 @@
 			children = (
 				BE821D281E3022DC00FF051A /* FwiKey.swift */,
 				BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */,
+				BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */,
+				BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */,
+				BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */,
+				BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */,
 			);
 			name = key;
 			sourceTree = "<group>";
@@ -527,10 +539,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				BEA0AF461E39EB64009D863A /* FwiRSAKey.swift in Sources */,
+				BEA0AF551E39F82F009D863A /* FwiRSAPrivateKey.swift in Sources */,
 				OBJ_21 /* FwiSecurity.swift in Sources */,
 				BE821D291E3022DC00FF051A /* FwiKey.swift in Sources */,
 				BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */,
+				BEA0AF541E39F82F009D863A /* FwiRSAPublicKey.swift in Sources */,
 				BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */,
+				BEA0AF4F1E39F827009D863A /* FwiRSAKeypair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

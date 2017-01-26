@@ -49,7 +49,7 @@ class FwiAESKeyTest: XCTestCase {
     // MARK: Setup
     override func setUp() {
         super.setUp()
-        key = FwiAESKey(withSize: .size128)
+        key = FwiAESKey(keySize: .size128)
     }
     
     // MARK: Tear Down

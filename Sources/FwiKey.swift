@@ -126,38 +126,12 @@ internal struct FwiKey {
             }
         }
     }
-//    internal var blocksize: Int {
-//        /* Condition validation */
-//        guard let k = key else {
-//            return 0
-//        }
-//        
-//        let blocksize = SecKeyGetBlockSize(k)
-//        return blocksize
-//    }
     internal var size: Int {
         didSet {
             attributes[SecAttr.bsiz.value] = size
             attributes[SecAttr.esiz.value] = size
         }
     }
-//    internal var key: SecKey? {
-//        /* Condition validation */
-//        guard let entry = entry else {
-//            return nil
-//        }
-//        
-//        var key: AnyObject?
-//        defer { key = nil }
-//        
-//        let query: [String:Any] = ["\(kSecValuePersistentRef)":entry, "\(kSecReturnRef)":kCFBooleanTrue]
-//        let status = SecItemCopyMatching(query as CFDictionary, &key)
-//        
-//        if let k = key {
-//            return (k as! SecKey)
-//        }
-//        return nil
-//    }
     
     fileprivate var entry: AnyObject?
     

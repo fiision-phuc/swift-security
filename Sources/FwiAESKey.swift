@@ -54,7 +54,7 @@ public struct FwiAESKey {
         key.attributes[SecAttr.decr.value] = kCFBooleanTrue
         key.attributes[SecAttr.encr.value] = kCFBooleanTrue
     }
-    public init(withSize s: FwiAESSize, identifier i: String? = String.randomIdentifier()) {
+    public init(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiAESSize) {
         self.init(withIdentifier: i)
         
         // Generate data
