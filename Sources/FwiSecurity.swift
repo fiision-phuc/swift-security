@@ -46,19 +46,6 @@ public enum FwiAESSize {
     case size192            // 24 bytes
     case size256            // 32 bytes
     
-    public var algorithm: CCAlgorithm {
-        switch self {
-        case .size192:
-            return CCAlgorithm(kCCKeySizeAES192)
-            
-        case .size256:
-            return CCAlgorithm(kCCKeySizeAES256)
-            
-        default:
-            return CCAlgorithm(kCCKeySizeAES128)
-        }
-    }
-    
     public var length: Int {
         switch self {
         case .size192:

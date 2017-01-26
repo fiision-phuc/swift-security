@@ -43,20 +43,43 @@ import XCTest
 class FwiAESKeyTest: XCTestCase {
     
     
+    fileprivate var key: FwiAESKey?
+    
     
     // MARK: Setup
     override func setUp() {
         super.setUp()
+        key = FwiAESKey(withSize: .size128)
     }
     
     // MARK: Tear Down
     override func tearDown() {
+        key?.remove()
         super.tearDown()
     }
     
     // MARK: Test Cases
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEncryptWithoutIV() {
+        let data = "Hello World".toData()
+        
+        let encryptedData = key?.encrypt(data: data)
+        let decryptedData = key?.decrypt(data: encryptedData)
+        
+        XCTAssertNil(key?.iv, "Expected not nil.")
+        XCTAssertNotNil(decryptedData, "Expected not nil.")
+        XCTAssertNotNil(encryptedData, "Expected not nil.")
+        XCTAssertEqual(decryptedData?.toString(), data?.toString(), "Expected '\(data?.toString())' but found: '\(decryptedData?.toString())'.")
+    }
+    
+    func testEncryptWithIV() {
+        let data = "Hello World".toData()
+        
+        let encryptedData = key?.encrypt(data: data, enableIV: true)
+        let decryptedData = key?.decrypt(data: encryptedData)
+        
+        XCTAssertNotNil(key?.iv, "Expected not nil.")
+        XCTAssertNotNil(decryptedData, "Expected not nil.")
+        XCTAssertNotNil(encryptedData, "Expected not nil.")
+        XCTAssertEqual(decryptedData?.toString(), data?.toString(), "Expected '\(data?.toString())' but found: '\(decryptedData?.toString())'.")
     }
 }
