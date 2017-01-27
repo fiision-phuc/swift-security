@@ -133,7 +133,7 @@ internal struct FwiKey {
         }
     }
     
-    fileprivate var entry: AnyObject?
+    internal var entry: AnyObject?
     
     // MARK: Class's internal methods
     /// Remove this key from keystore.

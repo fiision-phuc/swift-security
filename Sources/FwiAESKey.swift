@@ -50,9 +50,11 @@ public struct FwiAESKey {
         outBuffer = [UInt8](repeating: 0, count: buffer)
         
         key = FwiKey(withIdentifier: i)
-        key.attributes[SecAttr.type.value] = 2147483649
-        key.attributes[SecAttr.decr.value] = kCFBooleanTrue
-        key.attributes[SecAttr.encr.value] = kCFBooleanTrue
+        if key.entry == nil {
+            key.attributes[SecAttr.type.value] = 2147483649
+            key.attributes[SecAttr.decr.value] = kCFBooleanTrue
+            key.attributes[SecAttr.encr.value] = kCFBooleanTrue
+        }
     }
     public init(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiAESSize) {
         self.init(withIdentifier: i)
@@ -71,6 +73,9 @@ public struct FwiAESKey {
     
     // MARK: Class's properties
     public var iv: Data?
+    public var inKeystore: Bool {
+        return key.entry != nil
+    }
     
     fileprivate var key: FwiKey
     fileprivate let buffer = 64
