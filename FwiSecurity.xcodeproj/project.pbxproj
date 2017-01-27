@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE26CFED1E33652F002771F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26CFEC1E33652F002771F7 /* AppDelegate.swift */; };
+		BE26CFEF1E33652F002771F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26CFEE1E33652F002771F7 /* ViewController.swift */; };
+		BE26CFF21E33652F002771F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE26CFF01E33652F002771F7 /* Main.storyboard */; };
+		BE26CFF41E33652F002771F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE26CFF31E33652F002771F7 /* Assets.xcassets */; };
+		BE26CFF71E33652F002771F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE26CFF51E33652F002771F7 /* LaunchScreen.storyboard */; };
+		BE26D0001E35B9F4002771F7 /* FwiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26CFFF1E35B9F4002771F7 /* FwiKeyTest.swift */; };
+		BE821D291E3022DC00FF051A /* FwiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE821D281E3022DC00FF051A /* FwiKey.swift */; };
+		BEA0AF461E39EB64009D863A /* FwiRSAKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */; };
+		BEA0AF4F1E39F827009D863A /* FwiRSAKeypair.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */; };
+		BEA0AF541E39F82F009D863A /* FwiRSAPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */; };
+		BEA0AF551E39F82F009D863A /* FwiRSAPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */; };
+		BEA0AF591E3A6214009D863A /* FwiSecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF561E3A61EA009D863A /* FwiSecureStorage.swift */; };
+		BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
+		BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
+		BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
+		BEC0B3A51E2E6F1E00CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
+		BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */; };
+		BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */; };
+		BEC30AFD1DF70A4D00798A18 /* FwiBigIntTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */; };
+		BECA791A1E36EF1600794FD9 /* FwiAESKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECA79171E36EE3D00794FD9 /* FwiAESKeyTest.swift */; };
+		OBJ_21 /* FwiSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* FwiSecurity.swift */; };
+		OBJ_28 /* FwiSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* FwiSecurityTests.swift */; };
+		OBJ_30 /* FwiSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* FwiSecurity.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE26CFFD1E336594002771F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE26CFE91E33652F002771F7;
+			remoteInfo = Test;
+		};
+		BEC0B3911E2E6EB600CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC0B3801E2E6BCF00CDECB9;
+			remoteInfo = CommonCrypto;
+		};
+		BEC0B3991E2E6EDB00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC0B39B1E2E6EDB00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "_____Product_FwiCoreTests";
+			remoteInfo = FwiCoreTests;
+		};
+		BEC0B39D1E2E6EFD00CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC0B3A01E2E6F1200CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC0B3801E2E6BCF00CDECB9;
+			remoteInfo = CommonCrypto;
+		};
+		BEC0B3A21E2E6F1200CDECB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_FwiCore";
+			remoteInfo = FwiCore;
+		};
+		BEC30AF81DF708A800798A18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_16;
+			remoteInfo = FwiSecurity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE26CFEA1E33652F002771F7 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE26CFEC1E33652F002771F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE26CFEE1E33652F002771F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE26CFF11E33652F002771F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE26CFF31E33652F002771F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE26CFF61E33652F002771F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE26CFF81E33652F002771F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE26CFFC1E336551002771F7 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
+		BE26CFFF1E35B9F4002771F7 /* FwiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiKeyTest.swift; sourceTree = "<group>"; };
+		BE821D281E3022DC00FF051A /* FwiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiKey.swift; sourceTree = "<group>"; };
+		BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKey.swift; sourceTree = "<group>"; };
+		BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAPrivateKey.swift; sourceTree = "<group>"; };
+		BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAPublicKey.swift; sourceTree = "<group>"; };
+		BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKeypair.swift; sourceTree = "<group>"; };
+		BEA0AF561E3A61EA009D863A /* FwiSecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiSecureStorage.swift; sourceTree = "<group>"; };
+		BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
+		BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvos.modulemap; sourceTree = "<group>"; };
+		BEC0B38B1E2E6E9F00CDECB9 /* appletvsimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvsimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B38C1E2E6E9F00CDECB9 /* iphoneos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphoneos.modulemap; sourceTree = "<group>"; };
+		BEC0B38D1E2E6E9F00CDECB9 /* iphonesimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B38E1E2E6E9F00CDECB9 /* macosx.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
+		BEC0B38F1E2E6E9F00CDECB9 /* watchos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = watchos.modulemap; sourceTree = "<group>"; };
+		BEC0B3901E2E6E9F00CDECB9 /* watchsimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = watchsimulator.modulemap; sourceTree = "<group>"; };
+		BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FwiCore.xcodeproj; path = "Packages/FwiCore-1.1.1/FwiCore.xcodeproj"; sourceTree = "<group>"; };
+		BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiAESKey.swift; sourceTree = "<group>"; };
+		BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigInt.swift; sourceTree = "<group>"; };
+		BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiBigIntTest.swift; sourceTree = "<group>"; };
+		BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "lib-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "lib-release.xcconfig"; sourceTree = "<group>"; };
+		BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "project-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B021DF70ADF00798A18 /* project-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "project-release.xcconfig"; sourceTree = "<group>"; };
+		BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-debug.xcconfig"; sourceTree = "<group>"; };
+		BEC30B041DF70ADF00798A18 /* test-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "test-release.xcconfig"; sourceTree = "<group>"; };
+		BECA79171E36EE3D00794FD9 /* FwiAESKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiAESKeyTest.swift; sourceTree = "<group>"; };
+		OBJ_12 /* FwiSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FwiSecurityTests.swift; sourceTree = "<group>"; };
+		OBJ_14 /* FwiSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FwiSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_15 /* FwiSecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FwiSecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* FwiSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FwiSecurity.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE26CFE71E33652F002771F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC0B37D1E2E6BCF00CDECB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */,
+				BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BEC0B3A51E2E6F1E00CDECB9 /* FwiCore.framework in Frameworks */,
+				OBJ_30 /* FwiSecurity.framework in Frameworks */,
+				BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE26CFCE1E334FBF002771F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE26CFEB1E33652F002771F7 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				BE26CFFC1E336551002771F7 /* Test.entitlements */,
+				BE26CFEC1E33652F002771F7 /* AppDelegate.swift */,
+				BE26CFEE1E33652F002771F7 /* ViewController.swift */,
+				BE26CFF01E33652F002771F7 /* Main.storyboard */,
+				BE26CFF31E33652F002771F7 /* Assets.xcassets */,
+				BE26CFF51E33652F002771F7 /* LaunchScreen.storyboard */,
+				BE26CFF81E33652F002771F7 /* Info.plist */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		BE26D0011E35B9F9002771F7 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				BE26CFFF1E35B9F4002771F7 /* FwiKeyTest.swift */,
+				BECA79171E36EE3D00794FD9 /* FwiAESKeyTest.swift */,
+			);
+			name = key;
+			sourceTree = "<group>";
+		};
+		BE26D0021E35BA03002771F7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30AFC1DF70A4D00798A18 /* FwiBigIntTest.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		BE8FA3321E2EF540001FEF53 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				BE821D281E3022DC00FF051A /* FwiKey.swift */,
+				BEC0B3A61E2E80DA00CDECB9 /* FwiAESKey.swift */,
+				BEA0AF441E39E9AE009D863A /* FwiRSAKey.swift */,
+				BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */,
+				BEA0AF491E39F0F0009D863A /* FwiRSAPublicKey.swift */,
+				BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */,
+			);
+			name = key;
+			sourceTree = "<group>";
+		};
+		BEA0AF581E3A61F2009D863A /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				BEA0AF561E3A61EA009D863A /* FwiSecureStorage.swift */,
+			);
+			name = storage;
+			sourceTree = "<group>";
+		};
+		BEC0B3821E2E6BCF00CDECB9 /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */,
+				BEC0B38B1E2E6E9F00CDECB9 /* appletvsimulator.modulemap */,
+				BEC0B38C1E2E6E9F00CDECB9 /* iphoneos.modulemap */,
+				BEC0B38D1E2E6E9F00CDECB9 /* iphonesimulator.modulemap */,
+				BEC0B38E1E2E6E9F00CDECB9 /* macosx.modulemap */,
+				BEC0B38F1E2E6E9F00CDECB9 /* watchos.modulemap */,
+				BEC0B3901E2E6E9F00CDECB9 /* watchsimulator.modulemap */,
+			);
+			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		BEC0B3951E2E6EDB00CDECB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */,
+				BEC0B39C1E2E6EDB00CDECB9 /* FwiCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEC30AFB1DF70A2C00798A18 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		BEC30AFE1DF70ADF00798A18 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */,
+				BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */,
+				BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */,
+				BEC30B021DF70ADF00798A18 /* project-release.xcconfig */,
+				BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */,
+				BEC30B041DF70ADF00798A18 /* test-release.xcconfig */,
+				BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */,
+			);
+			name = Configs;
+			path = FwiSecurity.xcodeproj/Configs;
+			sourceTree = "<group>";
+		};
+		BEC30B071DF70D0200798A18 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* FwiSecurityTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		OBJ_11 /* FwiSecurityTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* FwiSecurityTests.swift */,
+				BE26D0021E35BA03002771F7 /* data */,
+				BE26D0011E35B9F9002771F7 /* key */,
+			);
+			name = FwiSecurityTests;
+			path = Tests/FwiSecurityTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* FwiSecurity.framework */,
+				OBJ_15 /* FwiSecurityTests.xctest */,
+				BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */,
+				BE26CFEA1E33652F002771F7 /* Test.app */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				BE26CFCE1E334FBF002771F7 /* Resources */,
+				OBJ_7 /* Sources */,
+				OBJ_10 /* Tests */,
+				BEC30AFE1DF70ADF00798A18 /* Configs */,
+				BE26CFEB1E33652F002771F7 /* Test */,
+				OBJ_13 /* Products */,
+				BEC30B071DF70D0200798A18 /* Dependencies */,
+				BEC0B3821E2E6BCF00CDECB9 /* CommonCrypto */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* FwiSecurity */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		OBJ_8 /* FwiSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* FwiSecurity.swift */,
+				BEC30AFB1DF70A2C00798A18 /* data */,
+				BE8FA3321E2EF540001FEF53 /* key */,
+				BEA0AF581E3A61F2009D863A /* storage */,
+			);
+			name = FwiSecurity;
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BEC0B37E1E2E6BCF00CDECB9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BE26CFE91E33652F002771F7 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE26CFF91E33652F002771F7 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				BE26CFE61E33652F002771F7 /* Sources */,
+				BE26CFE71E33652F002771F7 /* Frameworks */,
+				BE26CFE81E33652F002771F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test;
+			productName = Test;
+			productReference = BE26CFEA1E33652F002771F7 /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEC0B3881E2E6BD000CDECB9 /* Build configuration list for PBXNativeTarget "CommonCrypto" */;
+			buildPhases = (
+				BEC0B37C1E2E6BCF00CDECB9 /* Sources */,
+				BEC0B37D1E2E6BCF00CDECB9 /* Frameworks */,
+				BEC0B37E1E2E6BCF00CDECB9 /* Headers */,
+				BEC0B37F1E2E6BCF00CDECB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonCrypto;
+			productName = CommonCrypto;
+			productReference = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		OBJ_16 /* FwiSecurity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */;
+			buildPhases = (
+				OBJ_20 /* Sources */,
+				OBJ_22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEC0B39E1E2E6EFD00CDECB9 /* PBXTargetDependency */,
+				BEC0B3921E2E6EB600CDECB9 /* PBXTargetDependency */,
+			);
+			name = FwiSecurity;
+			productName = FwiSecurity;
+			productReference = OBJ_14 /* FwiSecurity.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		OBJ_23 /* FwiSecurityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "FwiSecurityTests" */;
+			buildPhases = (
+				OBJ_27 /* Sources */,
+				OBJ_29 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEC0B3A31E2E6F1200CDECB9 /* PBXTargetDependency */,
+				OBJ_31 /* PBXTargetDependency */,
+				BEC0B3A11E2E6F1200CDECB9 /* PBXTargetDependency */,
+				BE26CFFE1E336594002771F7 /* PBXTargetDependency */,
+			);
+			name = FwiSecurityTests;
+			productName = FwiSecurityTests;
+			productReference = OBJ_15 /* FwiSecurityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Fwi;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Fiision Studio";
+				TargetAttributes = {
+					BE26CFE91E33652F002771F7 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					BEC0B3801E2E6BCF00CDECB9 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					OBJ_23 = {
+						TestTargetID = BE26CFE91E33652F002771F7;
+					};
+				};
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "FwiSecurity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_13 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BEC0B3951E2E6EDB00CDECB9 /* Products */;
+					ProjectRef = BEC0B3941E2E6EDB00CDECB9 /* FwiCore.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				BE26CFE91E33652F002771F7 /* Test */,
+				OBJ_16 /* FwiSecurity */,
+				BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */,
+				OBJ_23 /* FwiSecurityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FwiCore.framework;
+			remoteRef = BEC0B3991E2E6EDB00CDECB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEC0B39C1E2E6EDB00CDECB9 /* FwiCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FwiCoreTests.xctest;
+			remoteRef = BEC0B39B1E2E6EDB00CDECB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE26CFE81E33652F002771F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE26CFF71E33652F002771F7 /* LaunchScreen.storyboard in Resources */,
+				BE26CFF41E33652F002771F7 /* Assets.xcassets in Resources */,
+				BE26CFF21E33652F002771F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC0B37F1E2E6BCF00CDECB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE26CFE61E33652F002771F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE26CFEF1E33652F002771F7 /* ViewController.swift in Sources */,
+				BE26CFED1E33652F002771F7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC0B37C1E2E6BCF00CDECB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BEA0AF461E39EB64009D863A /* FwiRSAKey.swift in Sources */,
+				BEA0AF551E39F82F009D863A /* FwiRSAPrivateKey.swift in Sources */,
+				BEA0AF591E3A6214009D863A /* FwiSecureStorage.swift in Sources */,
+				OBJ_21 /* FwiSecurity.swift in Sources */,
+				BE821D291E3022DC00FF051A /* FwiKey.swift in Sources */,
+				BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */,
+				BEA0AF541E39F82F009D863A /* FwiRSAPublicKey.swift in Sources */,
+				BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */,
+				BEA0AF4F1E39F827009D863A /* FwiRSAKeypair.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_28 /* FwiSecurityTests.swift in Sources */,
+				BE26D0001E35B9F4002771F7 /* FwiKeyTest.swift in Sources */,
+				BECA791A1E36EF1600794FD9 /* FwiAESKeyTest.swift in Sources */,
+				BEC30AFD1DF70A4D00798A18 /* FwiBigIntTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE26CFFE1E336594002771F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE26CFE91E33652F002771F7 /* Test */;
+			targetProxy = BE26CFFD1E336594002771F7 /* PBXContainerItemProxy */;
+		};
+		BEC0B3921E2E6EB600CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */;
+			targetProxy = BEC0B3911E2E6EB600CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B39E1E2E6EFD00CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FwiCore;
+			targetProxy = BEC0B39D1E2E6EFD00CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B3A11E2E6F1200CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC0B3801E2E6BCF00CDECB9 /* CommonCrypto */;
+			targetProxy = BEC0B3A01E2E6F1200CDECB9 /* PBXContainerItemProxy */;
+		};
+		BEC0B3A31E2E6F1200CDECB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FwiCore;
+			targetProxy = BEC0B3A21E2E6F1200CDECB9 /* PBXContainerItemProxy */;
+		};
+		OBJ_31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = OBJ_16 /* FwiSecurity */;
+			targetProxy = BEC30AF81DF708A800798A18 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE26CFF01E33652F002771F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE26CFF11E33652F002771F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE26CFF51E33652F002771F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE26CFF61E33652F002771F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE26CFFA1E33652F002771F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE26CFFB1E33652F002771F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEC0B3861E2E6BD000CDECB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.CommonCrypto;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BEC0B3871E2E6BD000CDECB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.CommonCrypto;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30AFF1DF70ADF00798A18 /* lib-debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurity;
+			};
+			name = Debug;
+		};
+		OBJ_19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B001DF70ADF00798A18 /* lib-release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurity;
+			};
+			name = Release;
+		};
+		OBJ_25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B031DF70ADF00798A18 /* test-debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurityTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
+			};
+			name = Debug;
+		};
+		OBJ_26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B041DF70ADF00798A18 /* test-release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiision.lib.FwiSecurityTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B011DF70ADF00798A18 /* project-debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC30B021DF70ADF00798A18 /* project-release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE26CFF91E33652F002771F7 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE26CFFA1E33652F002771F7 /* Debug */,
+				BE26CFFB1E33652F002771F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEC0B3881E2E6BD000CDECB9 /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC0B3861E2E6BD000CDECB9 /* Debug */,
+				BEC0B3871E2E6BD000CDECB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_17 /* Build configuration list for PBXNativeTarget "FwiSecurity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_18 /* Debug */,
+				OBJ_19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "FwiSecurity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_24 /* Build configuration list for PBXNativeTarget "FwiSecurityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
