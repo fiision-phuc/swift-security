@@ -48,20 +48,22 @@ internal struct FwiRSAKey {
         key = FwiKey(withIdentifier: i)
         
         // Indentify key's attributes
-        key.attributes[SecAttr.klbl.value] = "K3oWETTJGjEui1w+FpWTpoh0dAg=".decodeBase64Data() ?? Data()
-        key.attributes[SecAttr.type.value] = 42
-        key.attributes[SecAttr.asen.value] = kCFBooleanFalse
-        key.attributes[SecAttr.decr.value] = kCFBooleanTrue
-        key.attributes[SecAttr.drve.value] = kCFBooleanTrue
-        key.attributes[SecAttr.extr.value] = kCFBooleanTrue
-        key.attributes[SecAttr.modi.value] = kCFBooleanTrue
-        key.attributes[SecAttr.next.value] = kCFBooleanFalse
-        key.attributes[SecAttr.priv.value] = kCFBooleanTrue
-        key.attributes[SecAttr.sens.value] = kCFBooleanFalse
-        key.attributes[SecAttr.sign.value] = kCFBooleanTrue
-        key.attributes[SecAttr.snrc.value] = kCFBooleanFalse
-        key.attributes[SecAttr.unwp.value] = kCFBooleanTrue
-        key.attributes[SecAttr.vyrc.value] = kCFBooleanFalse
+        if key.entry == nil {
+            key.attributes[SecAttr.klbl.value] = "K3oWETTJGjEui1w+FpWTpoh0dAg=".decodeBase64Data() ?? Data()
+            key.attributes[SecAttr.type.value] = 42
+            key.attributes[SecAttr.asen.value] = kCFBooleanFalse
+            key.attributes[SecAttr.decr.value] = kCFBooleanTrue
+            key.attributes[SecAttr.drve.value] = kCFBooleanTrue
+            key.attributes[SecAttr.extr.value] = kCFBooleanTrue
+            key.attributes[SecAttr.modi.value] = kCFBooleanTrue
+            key.attributes[SecAttr.next.value] = kCFBooleanFalse
+            key.attributes[SecAttr.priv.value] = kCFBooleanTrue
+            key.attributes[SecAttr.sens.value] = kCFBooleanFalse
+            key.attributes[SecAttr.sign.value] = kCFBooleanTrue
+            key.attributes[SecAttr.snrc.value] = kCFBooleanFalse
+            key.attributes[SecAttr.unwp.value] = kCFBooleanTrue
+            key.attributes[SecAttr.vyrc.value] = kCFBooleanFalse
+        }
     }
     
     // MARK: Class's properties
@@ -71,36 +73,28 @@ internal struct FwiRSAKey {
     internal var version: Int8 {
         return 2
     }
-//    internal var blocksize: Int {
-//        /* Condition validation */
-//        guard let k = key else {
-//            return 0
-//        }
-//
-//        let blocksize = SecKeyGetBlockSize(k)
-//        return blocksize
-//    }
-//    internal var key: SecKey? {
-//        /* Condition validation */
-//        guard let entry = entry else {
-//            return nil
-//        }
-//
-//        var key: AnyObject?
-//        defer { key = nil }
-//
-//        let query: [String:Any] = ["\(kSecValuePersistentRef)":entry, "\(kSecReturnRef)":kCFBooleanTrue]
-//        let status = SecItemCopyMatching(query as CFDictionary, &key)
-//
-//        if let k = key {
-//            return (k as! SecKey)
-//        }
-//        return nil
-//    }
     
-    fileprivate var key: FwiKey
-    
-    // MARK: Class's public methods
+    internal var inKeystore: Bool {
+        return key.entry != nil
+    }
+    internal var keyRef: (SecKey?, Int) {
+        /* Condition validation */
+        guard let entry = key.entry else {
+            return (nil, 0)
+        }
 
-    // MARK: Class's private methods
+        var k: AnyObject?
+        defer { k = nil }
+
+        let query: [String:Any] = ["\(kSecValuePersistentRef)":entry, "\(kSecReturnRef)":kCFBooleanTrue]
+        let status = SecItemCopyMatching(query as CFDictionary, &k)
+
+        if let keyRef = k, status == errSecSuccess {
+            let blocksize = SecKeyGetBlockSize(keyRef as! SecKey)
+            return ((keyRef as! SecKey), blocksize)
+        }
+        return (nil, 0)
+    }
+    
+    internal var key: FwiKey
 }
