@@ -20,18 +20,17 @@ public struct FwiRSAKeypair {
         guard let identifier = i, identifier.length() > 0 else {
             return nil
         }
-        
-        let pubIdentifier = "\(identifier)|pub"
-        let pvtIdentifier = "\(identifier)|pvt"
-        publicKey = FwiRSAPublicKey(withIdentifier: pubIdentifier)
-        privateKey = FwiRSAPrivateKey(withIdentifier: pvtIdentifier)
+        self.identifier = identifier
+        publicKey = FwiRSAPublicKey(withIdentifier: identifier)
+        privateKey = FwiRSAPrivateKey(withIdentifier: identifier)
     }
     public init?(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiRSASize) {
         guard let identifier = i, identifier.length() > 0 else {
             return nil
         }
-        let pubIdentifier = "\(identifier)|pub"
-        let pvtIdentifier = "\(identifier)|pvt"
+        self.identifier = identifier
+        let pubIdentifier = "\(identifier)|public"
+        let pvtIdentifier = "\(identifier)|private"
         
         /* Condition validation: validate public's identifier & private's identifier */
         guard let pubID = pubIdentifier.toData(), let pvtID = pvtIdentifier.toData() else {
@@ -70,18 +69,25 @@ public struct FwiRSAKeypair {
         
         status = SecKeyGeneratePair(kpAttributes as CFDictionary, &pubKeyRef, &pvtKeyRef)
         if status == errSecSuccess {
-            publicKey = FwiRSAPublicKey(withIdentifier: pubIdentifier)
-            privateKey = FwiRSAPrivateKey(withIdentifier: pvtIdentifier)
+            publicKey = FwiRSAPublicKey(withIdentifier: identifier)
+            privateKey = FwiRSAPrivateKey(withIdentifier: identifier)
         }
     }
     
     // MARK: Class's properties
+    public fileprivate(set) var identifier: String
     public fileprivate(set) var publicKey: FwiRSAPublicKey?
     public fileprivate(set) var privateKey: FwiRSAPrivateKey?
     
     // MARK: Class's public methods
     public func createCSR(WithSubject s: [String:Any], digest d: FwiDigest = .sha1) -> String? {
         return nil
+    }
+    
+    /// Remove current keypair from keystore.
+    public func remove() {
+        publicKey?.remove()
+        privateKey?.remove()
     }
     
     // MARK: Class's private methods
