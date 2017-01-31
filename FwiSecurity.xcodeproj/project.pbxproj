@@ -20,6 +20,7 @@
 		BEA0AF551E39F82F009D863A /* FwiRSAPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF471E39F0D8009D863A /* FwiRSAPrivateKey.swift */; };
 		BEA0AF591E3A6214009D863A /* FwiSecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA0AF561E3A61EA009D863A /* FwiSecureStorage.swift */; };
 		BEB9D1DA1E3D006A009BE4C5 /* FwiRSAKeypairTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D1D91E3D006A009BE4C5 /* FwiRSAKeypairTest.swift */; };
+		BEB9D1DE1E3D844F009BE4C5 /* FwiDER.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D1DC1E3D1A5F009BE4C5 /* FwiDER.swift */; };
 		BEC0B3931E2E6EBB00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
 		BEC0B39F1E2E6F0200CDECB9 /* FwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B39A1E2E6EDB00CDECB9 /* FwiCore.framework */; };
 		BEC0B3A41E2E6F1E00CDECB9 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */; };
@@ -109,6 +110,7 @@
 		BEA0AF4D1E39F3EC009D863A /* FwiRSAKeypair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKeypair.swift; sourceTree = "<group>"; };
 		BEA0AF561E3A61EA009D863A /* FwiSecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiSecureStorage.swift; sourceTree = "<group>"; };
 		BEB9D1D91E3D006A009BE4C5 /* FwiRSAKeypairTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiRSAKeypairTest.swift; sourceTree = "<group>"; };
+		BEB9D1DC1E3D1A5F009BE4C5 /* FwiDER.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FwiDER.swift; sourceTree = "<group>"; };
 		BEC0B3811E2E6BCF00CDECB9 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC0B3891E2E6E4300CDECB9 /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
 		BEC0B38A1E2E6E9F00CDECB9 /* appletvos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = appletvos.modulemap; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC30AF91DF70A1D00798A18 /* FwiBigInt.swift */,
+				BEB9D1DC1E3D1A5F009BE4C5 /* FwiDER.swift */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				BEC30AFA1DF70A1D00798A18 /* FwiBigInt.swift in Sources */,
 				BEA0AF541E39F82F009D863A /* FwiRSAPublicKey.swift in Sources */,
 				BEC0B3AC1E2E837400CDECB9 /* FwiAESKey.swift in Sources */,
+				BEB9D1DE1E3D844F009BE4C5 /* FwiDER.swift in Sources */,
 				BEA0AF4F1E39F827009D863A /* FwiRSAKeypair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

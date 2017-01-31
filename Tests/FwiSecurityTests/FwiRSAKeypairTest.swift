@@ -45,9 +45,12 @@ class FwiRSAKeypairTest: XCTestCase {
         defer { kp?.remove() }
         
         let encryptedData = kp?.publicKey?.encrypt(data: "Hello, World!".toData())
+        let signature = kp?.privateKey?.sign(encryptedData: "Hello, World!".toData(), usingDigest: .sha512)
         XCTAssertEqual(encryptedData?.count, 128, "Expected '128' but found: '\(encryptedData?.count)'.")
+        XCTAssertEqual(signature?.count, 128, "Expected '128' but found: '\(signature?.count)'.")
         
         let decryptedData = kp?.privateKey?.decrypt(data: encryptedData)
+        XCTAssertTrue(kp?.publicKey?.verify(data: decryptedData, usingDigest: .sha512, withSignature: signature) ?? false, "Expected 'true' but found: 'false'.")
         XCTAssertEqual(decryptedData?.toString(), "Hello, World!", "Expected 'Hello, World!' but found: '\(decryptedData?.toString())'.")
     }
 }
