@@ -44,12 +44,7 @@ import FwiCore
 public struct FwiDER {
 
     // MARK: Class's constructors
-//    internal init() {
-//        derClass = .universal
-//        derValue = .none
-//        identifier = 0
-//    }
-    internal init(withIdentifier i: UInt8) {
+    internal init(withIdentifier i: UInt8 = 0) {
         identifier = i
         derClass = FwiGetDerClass(identifier)
         derValue = FwiGetDerValue(identifier)
@@ -777,94 +772,53 @@ public extension FwiDER {
     /// Property string.
     public var string: String? {
         get {
-            return nil
+            guard let content = content_ else {
+                return nil
+            }
             
-//            /* Condition validation */
-//            if (!_content || [_content length] == 0) return nil;
-//            
-//            if (_derClass == kFwiDerClass_Universal) {
-//                switch (_derValue) {
-//                case kFwiDerValue_Boolean: {
-//                    return [self getBoolean] ? @"True" : @"False";
-//                    }
-//                case kFwiDerValue_Integer:
-//                case kFwiDerValue_Enumerated: {
-//                    return [[self getBigInt] description];
-//                    }
-//                case kFwiDerValue_BitString:
-//                case kFwiDerValue_OctetString: {
-//                    // FIX FIX FIX: Switch to hex function
-//                    __autoreleasing NSMutableString *builder = [NSMutableString stringWithCapacity:((_content.length - (_derValue == kFwiDerValue_BitString ? 1 : 0)) << 1)];
-//                    const uint8_t *bytes = [_content bytes];
-//                    
-//                    for (NSUInteger i = (_derValue == kFwiDerValue_BitString ? 1 : 0); i < [_content length]; i++) {
-//                        NSString *text = [[NSString alloc] initWithFormat:@"%X", bytes[i]];
-//                        
-//                        [builder appendFormat:@"%@%@", ([text length] == 1 ? @"0" : @""), text];
-//                        FwiRelease(text);
-//                    }
-//                    return builder;
-//                    }
-//                case kFwiDerValue_Null: {
-//                    return @"";
-//                    }
-//                case kFwiDerValue_ObjectIdentifier: {
-//                    return [self getObjectIdentifier];
-//                    }
-//                case kFwiDerValue_Utf8String:
-//                case kFwiDerValue_NumericString:
-//                case kFwiDerValue_PrintableString:
-//                case kFwiDerValue_T61String:
-//                case kFwiDerValue_Ia5String:
-//                case kFwiDerValue_GraphicString:
-//                case kFwiDerValue_VisibleString:
-//                case kFwiDerValue_GeneralString:
-//                case kFwiDerValue_UtcTime:
-//                case kFwiDerValue_GeneralizedTime: {
-//                    return [_content toString];
-//                    }
-//                case kFwiDerValue_UniversalString: {
-//                    // FIX FIX FIX: Switch to hex function
-//                    uint8_t table[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-//                    
-//                    __autoreleasing NSMutableString *builder = [NSMutableString stringWithFormat:@"%@", @"#"];
-//                    const uint8_t *bytes = [_content bytes];
-//                    
-//                    for (NSUInteger i = 0; i < [_content length]; i++) {
-//                        [builder appendFormat:@"%c", table[(bytes[i] >> 4) & 0xf]];
-//                        [builder appendFormat:@"%c", table[bytes[i] & 0xf]];
-//                    }
-//                    return builder;
-//                    }
-//                case kFwiDerValue_BmpString: {
-//                    const uint8_t *bytes = [_content bytes];
-//                    unichar *cs = malloc(sizeof(unichar) * (_content.length >> 1));
-//                    
-//                    for (size_t i = 0; i < [_content length]; i += 2) {
-//                        size_t index = (i >> 1);
-//                        cs[index] = (unichar)((bytes[i] << 8) | bytes[i + 1]);
-//                    }
-//                    
-//                    __autoreleasing NSString *string = [NSString stringWithCharacters:cs length:(_content.length >> 1)];
-//                    free(cs);
-//                    return string;
-//                    }
-//                default: return nil;
-//                }
-//            }
-//            else {
-//                // FIX FIX FIX: Switch to hex function
-//                __autoreleasing NSMutableString *builder = [NSMutableString stringWithCapacity:(_content.length << 1)];
-//                const uint8_t *bytes = [_content bytes];
-//                
-//                for (NSUInteger i = 0; i < [_content length]; i++) {
-//                    NSString *text = [[NSString alloc] initWithFormat:@"%X", bytes[i]];
-//                    
-//                    [builder appendFormat:@"%@%@", ([text length] == 1 ? @"0" : @""), text];
-//                    FwiRelease(text);
-//                }
-//                return builder;
-//            }
+            if derClass == .universal {
+                switch derValue {
+                case .null:
+                    return ""
+                    
+                case .boolean:
+                    return boolean ? "True" : "False"
+
+                case .integer, .enumerated:
+                    return bigInt?.description
+                    
+                case .bitString:
+                    let data = content.subdata(in: Range<Data.Index>(uncheckedBounds: (lower: 1, upper: content.count)))
+                    return data.encodeHexString()
+                    
+                case .octetString:
+                    return content.encodeHexString()
+                    
+                case .objectIdentifier:
+                    return objectIdentifier
+                    
+                case .universalString:
+                    return "#\(content.encodeHexString() ?? "")"
+                    
+                case .bmpString:
+                    var builder = ""
+                    for i in stride(from: 0, to: content.count, by: 2) {
+                        let unit = ((UInt16(content[i]) << 8) | UInt16(content[i + 1]))
+                        guard let unicode = UnicodeScalar(unit) else {
+                            continue
+                        }
+                        
+                        let c = Character(unicode)
+                        builder.append(c)
+                    }
+                    return builder
+                    
+                default:
+                    return content.toString()
+                }
+            } else {
+                return content.encodeHexString()
+            }
         }
         set {
             /* Condition validation */
