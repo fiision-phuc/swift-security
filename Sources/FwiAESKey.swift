@@ -51,7 +51,7 @@ public struct FwiAESKey {
         
         key = FwiKey(withIdentifier: i)
         if key.entry == nil {
-            key.attributes[SecAttr.type.value] = 2147483649
+            key.attributes[SecAttr.type.value] = UInt64(2147483649)
             key.attributes[SecAttr.decr.value] = kCFBooleanTrue
             key.attributes[SecAttr.encr.value] = kCFBooleanTrue
         }
@@ -78,7 +78,7 @@ public struct FwiAESKey {
     }
     
     fileprivate var key: FwiKey
-    fileprivate let buffer = 64
+    fileprivate let buffer = 512
     fileprivate var inBuffer: [UInt8]
     fileprivate var outBuffer: [UInt8]
     
