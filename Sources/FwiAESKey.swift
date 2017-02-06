@@ -51,7 +51,7 @@ public struct FwiAESKey {
         
         key = FwiKey(withIdentifier: i)
         if key.entry == nil {
-            key.attributes[SecAttr.type.value] = UInt64(2147483649)
+            key.attributes[SecAttr.type.value] = UInt32(integerLiteral: 2147483649)
             key.attributes[SecAttr.decr.value] = kCFBooleanTrue
             key.attributes[SecAttr.encr.value] = kCFBooleanTrue
         }
@@ -102,18 +102,20 @@ public struct FwiAESKey {
         
         // Create crypto
         var cryptoRef: CCCryptorRef?
-        var keyData = key.encode()
+        var ivData = iv?.bytes() ?? []
+        var keyData = key.encode()?.bytes() ?? []
         defer {
-            bzero(&outBuffer, buffer)
             bzero(&inBuffer, buffer)
-            keyData?.clearBytes()
+            bzero(&outBuffer, buffer)
+            bzero(&ivData, ivData.count)
+            bzero(&keyData, keyData.count)
             cryptoRef = nil
         }
         
         var status = CCCryptorCreate(CCOperation(kCCEncrypt),
                                      CCAlgorithm(kCCAlgorithmAES128),
-                                     CCOptions(kCCOptionPKCS7Padding),
-                                     keyData?.bytes() ?? [], key.size, iv?.bytes() ?? [], &cryptoRef)
+                                     CCOptions(kCCOptionECBMode | kCCOptionPKCS7Padding),
+                                     &keyData, key.size, &ivData, &cryptoRef)
         
         /* Condition validation: validate initialize process */
         guard status == CCCryptorStatus(kCCSuccess) else {
@@ -159,18 +161,20 @@ public struct FwiAESKey {
         
         // Create crypto
         var cryptoRef: CCCryptorRef?
-        var keyData = key.encode()
+        var ivData = iv?.bytes() ?? []
+        var keyData = key.encode()?.bytes() ?? []
         defer {
-            bzero(&outBuffer, buffer)
             bzero(&inBuffer, buffer)
-            keyData?.clearBytes()
+            bzero(&outBuffer, buffer)
+            bzero(&ivData, ivData.count)
+            bzero(&keyData, keyData.count)
             cryptoRef = nil
         }
         
         var status = CCCryptorCreate(CCOperation(kCCDecrypt),
                                      CCAlgorithm(kCCAlgorithmAES128),
-                                     CCOptions(kCCOptionPKCS7Padding),
-                                     keyData?.bytes() ?? [], key.size, iv?.bytes() ?? [], &cryptoRef)
+                                     CCOptions(kCCOptionECBMode | kCCOptionPKCS7Padding),
+                                     &keyData, key.size, &ivData, &cryptoRef)
         
         /* Condition validation: validate initialize process */
         guard status == CCCryptorStatus(kCCSuccess) else {

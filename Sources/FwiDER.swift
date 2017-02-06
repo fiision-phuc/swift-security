@@ -190,18 +190,27 @@ public struct FwiDER {
             return Data(bytes: [identifier, 0x00])
         }
         
-        let length = content.count
+        let length = UInt32(content.count)
         var data: Data
         
         if length > 0x7f {
             if length < 0x100 {
                 data = Data(bytes: [identifier, FwiDERLength.level1.rawValue, UInt8(length)])
             } else if length < 0x10000 {
-                data = Data(bytes: [identifier, FwiDERLength.level2.rawValue, UInt8((length & 0xff00) >> 8), UInt8(length & 0x00ff)])
+                let t1 = UInt32(integerLiteral: 0xff00)
+                let t2 = UInt32(integerLiteral: 0x00ff)
+                data = Data(bytes: [identifier, FwiDERLength.level2.rawValue, UInt8((length & t1) >> 8), UInt8(length & t2)])
             } else if length < 0x1000000 {
-                data = Data(bytes: [identifier, FwiDERLength.level3.rawValue, UInt8((length & 0xff0000) >> 16), UInt8((length & 0x00ff00) >> 8), UInt8(length & 0x0000ff)])
+                let t1 = UInt32(integerLiteral: 0xff0000)
+                let t2 = UInt32(integerLiteral: 0x00ff00)
+                let t3 = UInt32(integerLiteral: 0x0000ff)
+                data = Data(bytes: [identifier, FwiDERLength.level3.rawValue, UInt8((length & t1) >> 16), UInt8((length & t2) >> 8), UInt8(length & t3)])
             } else {
-                data = Data(bytes: [identifier, FwiDERLength.level4.rawValue, UInt8((length & 0xff000000) >> 24), UInt8((length & 0x00ff0000) >> 16), UInt8((length & 0x0000ff00) >> 8), UInt8(length & 0x000000ff)])
+                let t1 = UInt32(integerLiteral: 0xff000000)
+                let t2 = UInt32(integerLiteral: 0x00ff0000)
+                let t3 = UInt32(integerLiteral: 0x0000ff00)
+                let t4 = UInt32(integerLiteral: 0x000000ff)
+                data = Data(bytes: [identifier, FwiDERLength.level4.rawValue, UInt8((length & t1) >> 24), UInt8((length & t2) >> 16), UInt8((length & t3) >> 8), UInt8(length & t4)])
             }
         } else {
             data = Data(bytes: [identifier, UInt8(length)])
