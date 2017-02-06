@@ -41,7 +41,7 @@ import Foundation
 import FwiCore
 
 
-public struct FwiSecureStorage {
+public final class FwiSecureStorage {
     // MARK: Singleton instance
     public static let instance = FwiSecureStorage()
     
@@ -68,7 +68,7 @@ public struct FwiSecureStorage {
         guard let data = userDefaults.object(forKey: "preferences") as? Data else {
             return [String:Any]()
         }
-
+        
         // Try to restore previous preferences
         guard let decryptedData = self.key.decrypt(data: data), let d = NSKeyedUnarchiver.unarchiveObject(with: decryptedData) as? [String:Any] else {
             return [String:Any]()
@@ -78,10 +78,10 @@ public struct FwiSecureStorage {
     
     // MARK: Class's public methods
     public subscript(key: String) -> Any? {
-        mutating get {
+        get {
             return preferences[key]
         }
-        mutating set {
+        set {
             /* Condition validation */
             if key.length() == 0 {
                 return
@@ -99,7 +99,7 @@ public struct FwiSecureStorage {
     /// Save user's preference to UserDefaults. The save function requires a lot of resources from
     /// device, only sensity info must be persisted right away, otherwise, should only perform save
     /// function when everything is finished.
-    public mutating func save() {
+    public func save() {
         objc_sync_enter(preferences); defer { objc_sync_exit(preferences) }
         
         // Encrypted data
