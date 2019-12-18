@@ -45,7 +45,7 @@ import FwiCore
 public struct FwiAESKey {
    
     // MARK: Class's constructors
-    public init(withIdentifier i: String? = String.randomIdentifier()) {
+    public init(withIdentifier i: String? = String.randomIdentifier) {
         key = FwiKey(withIdentifier: i)
         if key.entry == nil {
             key.attributes[SecAttr.type.value] = UInt32(integerLiteral: 2147483649)
@@ -53,7 +53,7 @@ public struct FwiAESKey {
             key.attributes[SecAttr.encr.value] = kCFBooleanTrue
         }
     }
-    public init(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiAESSize) {
+    public init(withIdentifier i: String? = String.randomIdentifier, keySize s: FwiAESSize) {
         self.init(withIdentifier: i)
         
         // Generate data

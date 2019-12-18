@@ -16,8 +16,8 @@ import FwiCore
 public struct FwiRSAPrivateKey {
 
     // MARK: Class's constructors
-    public init?(withIdentifier i: String? = String.randomIdentifier()) {
-        guard let identifier = i, identifier.length() > 0 else {
+    public init?(withIdentifier i: String? = String.randomIdentifier) {
+        guard let identifier = i, identifier.count > 0 else {
             return nil
         }
         
@@ -80,5 +80,13 @@ public struct FwiRSAPrivateKey {
     /// Remove current key from keystore.
     public func remove() {
         rsaKey.key.remove()
+    }
+}
+
+// MARK: Struct's forward properties
+public extension FwiRSAPrivateKey {
+    
+    var isInKeystore: Bool {
+        return rsaKey.inKeystore
     }
 }
