@@ -44,7 +44,7 @@ import FwiCore
 internal struct FwiRSAKey {
 
     // MARK: Class's constructors
-    internal init(withIdentifier i: String? = String.randomIdentifier()) {
+    internal init(withIdentifier i: String? = String.randomIdentifier) {
         key = FwiKey(withIdentifier: i)
         
         // Indentify key's attributes
