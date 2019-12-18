@@ -45,10 +45,7 @@ import FwiCore
 public struct FwiAESKey {
    
     // MARK: Class's constructors
-    public init(withIdentifier i: String? = String.randomIdentifier()) {
-        inBuffer  = [UInt8](repeating: 0, count: buffer)
-        outBuffer = [UInt8](repeating: 0, count: buffer)
-        
+    public init(withIdentifier i: String? = String.randomIdentifier) {
         key = FwiKey(withIdentifier: i)
         if key.entry == nil {
             key.attributes[SecAttr.type.value] = UInt32(integerLiteral: 2147483649)
@@ -56,7 +53,7 @@ public struct FwiAESKey {
             key.attributes[SecAttr.encr.value] = kCFBooleanTrue
         }
     }
-    public init(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiAESSize) {
+    public init(withIdentifier i: String? = String.randomIdentifier, keySize s: FwiAESSize) {
         self.init(withIdentifier: i)
         
         // Generate data
@@ -78,9 +75,6 @@ public struct FwiAESKey {
     }
     
     fileprivate var key: FwiKey
-    fileprivate let buffer = 512
-    fileprivate var inBuffer: [UInt8]
-    fileprivate var outBuffer: [UInt8]
     
     // MARK: Class's public methods
     /// Encrypt Data.
@@ -92,6 +86,10 @@ public struct FwiAESKey {
             return nil
         }
         
+        let operation = CCOperation(kCCEncrypt)
+        let algorithm = CCAlgorithm(kCCAlgorithmAES128)
+        let option = CCOptions(kCCOptionECBMode + kCCOptionPKCS7Padding)
+        
         // Generate IV
         if useIV {
             var bytes = [UInt8](repeating: 0, count: kCCBlockSizeAES128)
@@ -101,53 +99,28 @@ public struct FwiAESKey {
         }
         
         // Create crypto
-        var cryptoRef: CCCryptorRef?
+        var input = data.bytes()
         var ivData = iv?.bytes() ?? []
         var keyData = key.encode()?.bytes() ?? []
         defer {
-            bzero(&inBuffer, buffer)
-            bzero(&outBuffer, buffer)
+            bzero(&input, input.count)
             bzero(&ivData, ivData.count)
             bzero(&keyData, keyData.count)
-            cryptoRef = nil
         }
         
-        var status = CCCryptorCreate(CCOperation(kCCEncrypt),
-                                     CCAlgorithm(kCCAlgorithmAES128),
-                                     CCOptions(kCCOptionECBMode | kCCOptionPKCS7Padding),
-                                     &keyData, key.size, &ivData, &cryptoRef)
+        // Encrypt process
+        var length = (data.count / kCCBlockSizeAES128 + 1) * kCCBlockSizeAES128
+        var output = [UInt8](repeating: 0, count: length)
         
-        /* Condition validation: validate initialize process */
+        let status = CCCrypt(operation, algorithm, option,
+                             keyData, keyData.count, ivData,
+                             input, input.count,
+                             &output, length, &length)
+
         guard status == CCCryptorStatus(kCCSuccess) else {
             return nil
         }
-        
-        // Estimate length
-        let length = (data.count / kCCBlockSizeAES128 + 1) * kCCBlockSizeAES128
-        var finalData = Data(capacity: length)
-        
-        // Encrypt process
-        var len = 0
-        for index in stride(from: 0, to: data.count, by: buffer) {
-            let upper = min(index + buffer, data.count)
-            data.copyBytes(to: &inBuffer, from: Range<Data.Index>(uncheckedBounds: (lower: index, upper: upper)))
-            
-            status = CCCryptorUpdate(cryptoRef, &inBuffer, upper, &outBuffer, buffer, &len)
-            if status == CCStatus(kCCSuccess) {
-                if len > 0 {
-                    finalData.append(outBuffer, count: len)
-                }
-            } else {
-                return nil
-            }
-        }
-        
-        // Finalize process
-        status = CCCryptorFinal(cryptoRef, &outBuffer, buffer, &len)
-        if status == CCStatus(kCCSuccess) {
-            finalData.append(outBuffer, count: len)
-        }
-        return finalData
+        return Data(bytes: &output, count: length)
     }
     
     /// Decrypt Data.
@@ -159,53 +132,42 @@ public struct FwiAESKey {
             return nil
         }
         
+        let operation = CCOperation(kCCDecrypt)
+        let algorithm = CCAlgorithm(kCCAlgorithmAES128)
+        let option = CCOptions(kCCOptionECBMode + kCCOptionPKCS7Padding)
+        
         // Create crypto
-        var cryptoRef: CCCryptorRef?
+        var input = data.bytes()
         var ivData = iv?.bytes() ?? []
         var keyData = key.encode()?.bytes() ?? []
         defer {
-            bzero(&inBuffer, buffer)
-            bzero(&outBuffer, buffer)
+            bzero(&input, input.count)
             bzero(&ivData, ivData.count)
             bzero(&keyData, keyData.count)
-            cryptoRef = nil
         }
         
-        var status = CCCryptorCreate(CCOperation(kCCDecrypt),
-                                     CCAlgorithm(kCCAlgorithmAES128),
-                                     CCOptions(kCCOptionECBMode | kCCOptionPKCS7Padding),
-                                     &keyData, key.size, &ivData, &cryptoRef)
-        
-        /* Condition validation: validate initialize process */
+        // Decrypt process
+        var length = data.count
+        var output = [UInt8](repeating: 0, count: length)
+        let status = CCCrypt(operation, algorithm, option,
+                             keyData, keyData.count, ivData,
+                             input, input.count,
+                             &output, length, &length)
+//        CCCrypt(_ op: CCOperation,
+//                _ alg: CCAlgorithm,
+//                _ options: CCOptions,
+//                _ key: UnsafeRawPointer!,
+//                _ keyLength: Int,
+//                _ iv: UnsafeRawPointer!,
+//                _ dataIn: UnsafeRawPointer!,
+//                _ dataInLength: Int,
+//                _ dataOut: UnsafeMutableRawPointer!,
+//                _ dataOutAvailable: Int,
+//                _ dataOutMoved: UnsafeMutablePointer<Int>!)
         guard status == CCCryptorStatus(kCCSuccess) else {
             return nil
         }
-        
-        // Estimate length
-        var finalData = Data(capacity: data.count)
-        
-        // Decrypt process
-        var len = 0
-        for index in stride(from: 0, to: data.count, by: buffer) {
-            let upper = min(index + buffer, data.count)
-            data.copyBytes(to: &inBuffer, from: Range<Data.Index>(uncheckedBounds: (lower: index, upper: upper)))
-            
-            status = CCCryptorUpdate(cryptoRef, &inBuffer, upper, &outBuffer, buffer, &len)
-            if status == CCStatus(kCCSuccess) {
-                if len > 0 {
-                    finalData.append(outBuffer, count: len)
-                }
-            } else {
-                return nil
-            }
-        }
-        
-        // Finalize process
-        status = CCCryptorFinal(cryptoRef, &outBuffer, buffer, &len)
-        if status == CCStatus(kCCSuccess) {
-            finalData.append(outBuffer, count: len)
-        }
-        return finalData
+        return Data(bytes: &output, count: length)
     }
     
     /// Remove current key from keystore.

@@ -51,7 +51,7 @@ public final class FwiSecureStorage {
     
     // MARK: Class's properties
     fileprivate lazy var key: FwiAESKey = {
-        guard let identifier = UserDefaults.standard.object(forKey: "secureStorage") as? String, identifier.length() > 0 else {
+        guard let identifier = UserDefaults.standard.object(forKey: "secureStorage") as? String, identifier.count > 0 else {
             preconditionFailure("Could not find value for: 'secureStorage' inside UserDefaults.standard")
         }
         
@@ -83,7 +83,7 @@ public final class FwiSecureStorage {
         }
         set {
             /* Condition validation */
-            if key.length() == 0 {
+            if key.count == 0 {
                 return
             }
             objc_sync_enter(preferences); defer { objc_sync_exit(preferences) }

@@ -665,11 +665,11 @@ public extension FwiDER {
 //                    }
 //                }
             } else if derValue == .utcTime {
-                if sc?.length() == 6 {
+                if sc?.count == 6 {
                     dateFormat.dateFormat = "yyMMdd"
-                } else if sc?.length() == 10 {
+                } else if sc?.count == 10 {
                     dateFormat.dateFormat = "yyMMddHHmm"
-                } else if sc?.length() == 12 {
+                } else if sc?.count == 12 {
                     dateFormat.dateFormat = "yyMMddHHmmss"
                 }
             }
@@ -740,7 +740,7 @@ public extension FwiDER {
             return builder
         }
         set {
-            guard let oid = newValue, oid.length() > 0 && derValue == .objectIdentifier else {
+            guard let oid = newValue, oid.count > 0 && derValue == .objectIdentifier else {
                 return
             }
             var data = Data(capacity: 10)
@@ -842,7 +842,7 @@ public extension FwiDER {
             }
             
             /* Condition validation: validate input */
-            guard let input = newValue, input.length() > 0 else {
+            guard let input = newValue, input.count > 0 else {
                 return
             }
             

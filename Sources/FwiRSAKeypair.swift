@@ -16,16 +16,16 @@ import FwiCore
 public struct FwiRSAKeypair {
 
     // MARK: Class's constructors
-    public init?(withIdentifier i: String? = String.randomIdentifier()) {
-        guard let identifier = i, identifier.length() > 0 else {
+    public init?(withIdentifier i: String? = String.randomIdentifier) {
+        guard let identifier = i, identifier.count > 0 else {
             return nil
         }
         self.identifier = identifier
         publicKey = FwiRSAPublicKey(withIdentifier: identifier)
         privateKey = FwiRSAPrivateKey(withIdentifier: identifier)
     }
-    public init?(withIdentifier i: String? = String.randomIdentifier(), keySize s: FwiRSASize) {
-        guard let identifier = i, identifier.length() > 0 else {
+    public init?(withIdentifier i: String? = String.randomIdentifier, keySize s: FwiRSASize) {
+        guard let identifier = i, identifier.count > 0 else {
             return nil
         }
         self.identifier = identifier
@@ -91,4 +91,15 @@ public struct FwiRSAKeypair {
     }
     
     // MARK: Class's private methods
+}
+
+// MARK: Struct's forward properties
+public extension FwiRSAKeypair {
+    
+    var isInKeystore: Bool {
+        guard let privateKey = privateKey, let publicKey = publicKey else {
+            return false
+        }
+        return (privateKey.isInKeystore && publicKey.isInKeystore)
+    }
 }
